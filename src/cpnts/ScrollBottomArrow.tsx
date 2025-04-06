@@ -3,7 +3,9 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 export default function ScrollBottomArrow() {
+
   const t = useTranslations('ScrollBottomArrow')
+
   return (
     <Image
       src={'arrow.svg'}

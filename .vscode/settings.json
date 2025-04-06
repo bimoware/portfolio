@@ -1,8 +1,10 @@
 {
-	"files.exclude": {
-		".gitattributes": true,
-		"postcss.config.mjs": true,
-		"package-lock.json": true,
-		"next-env.d.ts": true
-	}
+  "files.exclude": {
+    ".gitattributes": true,
+    "postcss.config.mjs": true,
+    "package-lock.json": true,
+    "next-env.d.ts": true
+  },
+  "i18n-ally.localesPaths": ["i18n", "messages"],
+  "i18n-ally.sourceLanguage": "en"
 }

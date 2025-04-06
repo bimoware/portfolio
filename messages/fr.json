@@ -1,10 +1,14 @@
 {
   "HomePage": {
-    "title": "T'as une idée. J'ai des compétences. T'attends quoi??",
+    "title": "T'as ton idée. J'ai les compétences. T'attends quoi??",
     "subtitle": "Salut fréro! Je m'appelle Bimo, 18 ans et habite au Maroc. J'ai une passion incroyable pour le dev web et, maintenant que je suis majeur, je freelance dessus! Ma spécialité est Next.js + Tailwind et j'adorerais en entendre plus sur ton projet!",
-    "pfp_alt": "Photo de profil"
+    "pfpAlt": "Photo de profil"
   },
   "ScrollBottomArrow": {
     "alert": "Site toujours vide.. Essaye de revenir dans une heure ou deux?"
+  },
+  "Metadata": {
+    "title": "Portfolio de Bimo",
+    "description": "Mon portfolio personnel. Je montre ici ma personnalité, mes compétences, mes projets et moyens de me contacter."
   }
 }
