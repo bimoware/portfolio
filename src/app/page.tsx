@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
 	return <>
-		<div className="w-screen h-[90vh] flex items-center justify-around gap-10 p-10">
+		<div className="w-screen h-screen flex items-center justify-around gap-10 p-10">
 			<div className="relative min-w-60 w-1/3 aspect-square group">
 				{
 					[true, false]
@@ -30,7 +30,7 @@ export default function Home() {
 				</h3>
 			</div>
 		</div>
-		<div className="flex justify-center items-center w-screen h-full">
+		<div className="absolute bottom-2 flex justify-center items-end w-screen h-screen">
 			<ScrollBottomArrow />
 		</div>
 	</>
