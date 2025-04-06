@@ -3,5 +3,8 @@
     "title": "You don't like ugly websites? Me neither 💀",
     "subtitle": "Hi! My name is Bimo, I'm 18, from Morocco and a passionate Web dev freelancer. I enjoy making websites using Next.js and I would be happy to hear more about your projects!",
     "pfp_alt": "Profile Picture"
+  },
+  "ScrollBottomArrow": {
+    "alert": "Website still empty... Try coming back in an hour or two?"
   }
 }
