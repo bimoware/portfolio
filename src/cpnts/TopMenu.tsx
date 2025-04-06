@@ -28,21 +28,27 @@ export default function TopMenu() {
 
   return <div className="w-full relative flex items-center justify-center p-2 px-2">
     <div ref={markerRef} className="absolute left-0 h-7
-    rounded-full bg-indigo-500/70
+    rounded-full bg-indigo-500
     transition-all duration-500 cursor-pointer
     z-10"
       style={{
         left: markerLeft + "px",
         width: markerWidth + "px"
       }} />
-    <div className="*:z-10 inline-flex gap-2 justify-center items-center h-full duration-300 ease-out
-    outline outline-indigo-500/50 rounded-2xl p-2 bg-neutral-950/90">
+    <div className="inline-flex gap-2 justify-center items-center h-full duration-300 ease-out
+    outline outline-indigo-500/50 rounded-2xl p-2 bg-neutral-950/80
+    *:z-20">
       {
-        [t('me'), t('skills'), t('projects'), t('contact')]
+        [
+          { label: t('me'), id: 'me' },
+          { label: t('skills'), id: 'skills' },
+          { label: t('projects'), id: 'projects' },
+          { label: t('contact'), id: 'contact' }
+        ]
           .map(item => <a className="select-none cursor-pointer mx-1B px-3 decoration-0"
-            href={`#${item.toLowerCase().replace(' ', '-')}`}
+            href={`#${item.id}`}
             ref={(e) => { navLinks.current.push(e!) }}
-            key={item}>{item}</a>)
+            key={item.id}>{item.label}</a>)
       }
     </div>
   </div>
