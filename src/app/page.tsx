@@ -1,8 +1,9 @@
+import ScrollBottomArrow from "@/cpnts/ScrollBottomArrow";
 import Image from "next/image";
 
 export default function Home() {
 	return <>
-		<div className="w-screen h-screen flex items-center justify-around gap-10 p-10">
+		<div className="w-screen h-[90vh] flex items-center justify-around gap-10 p-10">
 			<div className="relative min-w-60 w-1/3 aspect-square group">
 				{
 					[true, false]
@@ -27,6 +28,9 @@ export default function Home() {
 					Hi! My name is Malik, I'm 18 and a passionate web dev freelancer from Morocco. I enjoy making websites using Next.js
 				</h3>
 			</div>
+		</div>
+		<div className="flex justify-center items-center w-screen h-full">
+			<ScrollBottomArrow />
 		</div>
 	</>
 }
