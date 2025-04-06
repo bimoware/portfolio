@@ -1,4 +1,5 @@
-import ProfilePicture from '@/cpnts/ProfilePicture'
+import ContactSection from '@/cpnts/sections/ContactSection'
+import HeroSection from '@/cpnts/sections/HeroSection'
 import TopMenu from '@/cpnts/TopMenu'
 import { useTranslations } from 'next-intl'
 
@@ -10,24 +11,10 @@ export default function HomePage() {
 			<div className='z-50 fixed top-0 w-full p-2'>
 				<TopMenu />
 			</div>
-			<div id="me" className='w-screen h-screen flex items-center justify-around gap-10 p-10'>
-				<ProfilePicture pfpAlt={t("pfpAlt")} />
-				<div>
-					<h1 className='text-4xl font-bold mb-5'>
-						{t('title')}
-					</h1>
-					<h3>{t('subtitle')}</h3>
-				</div>
-			</div>
-			<div id="contact" className='w-screen h-screen flex items-center justify-around gap-10 p-10'>
-				<ProfilePicture pfpAlt={t("pfpAlt")} />
-				<div>
-					<h1 className='text-4xl font-bold mb-5'>
-						{t('title')}
-					</h1>
-					<h3>{t('subtitle')}</h3>
-				</div>
-			</div>
+			<HeroSection pfpAlt={t("pfpAlt")}
+				title={t('title')}
+				subtitle={t('subtitle')} />
+			<ContactSection />
 		</>
 	)
 }

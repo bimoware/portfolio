@@ -7,28 +7,34 @@ export default function TopMenu() {
   const t = useTranslations('HomePage')
   const markerRef = useRef<HTMLDivElement>(null)
   const navLinks = useRef<HTMLSpanElement[]>([])
+  const selectedNav = useRef<HTMLSpanElement>(null)
   const [markerLeft, setMarkerLeft] = useState(0)
   const [markerWidth, setMarkerWidth] = useState(0)
 
+
   useEffect(() => {
-    function indicator(target: HTMLElement) {
-      if (!markerRef.current) return;
-      setMarkerLeft(target.offsetLeft)
-      setMarkerWidth(target.offsetWidth)
-    }
     if (!navLinks.current) return;
 
-    function handleClick(e: MouseEvent) {
-      indicator(e.currentTarget as HTMLElement)
+    function handleClick(e: any) {
+      if (!markerRef.current) return;
+      if (e instanceof MouseEvent) selectedNav.current = e.currentTarget as HTMLElement
+      if (selectedNav.current) {
+        setMarkerLeft(selectedNav.current.offsetLeft)
+        setMarkerWidth(selectedNav.current.offsetWidth)
+      }
     }
 
-    navLinks.current.forEach((link) => link.addEventListener("click", (e) => handleClick(e)));
-    return () => navLinks.current.forEach((link) => link.removeEventListener("click", (e) => handleClick(e)));
+    navLinks.current.forEach((link) => link.addEventListener("click", handleClick));
+    window.addEventListener('resize', handleClick)
+    return () => {
+      navLinks.current.forEach((link) => link.removeEventListener("click", handleClick));
+      window.removeEventListener('resize', handleClick)
+    }
   }, [])
 
   return <div className="w-full relative flex items-center justify-center p-2 px-2">
     <div ref={markerRef} className="absolute left-0 h-7
-    rounded-full bg-indigo-500
+    rounded-full bg-indigo-800
     transition-all duration-500 cursor-pointer
     z-20"
       style={{
@@ -36,7 +42,7 @@ export default function TopMenu() {
         width: markerWidth + "px"
       }} />
     <div className="inline-flex gap-2 justify-center items-center h-full duration-300 ease-out
-    outline outline-indigo-500/50 rounded-2xl p-2 bg-neutral-950/80
+    border border-indigo-800 rounded-full p-2 bg-neutral-950/80
     *:z-20">
       {
         [
