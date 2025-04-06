@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        ".gitattributes": true,
+        "postcss.config.mjs": true,
+        "package-lock.json": true,
+        "next-env.d.ts": true,
+    }
+}
