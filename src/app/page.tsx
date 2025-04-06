@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Home() {
 	return <>
-		<div className="w-screen h-screen flex items-center justify-center gap-10 p-10">
-			<div className="relative w-1/3 aspect-square group">
+		<div className="w-screen h-screen flex items-center justify-around gap-10 p-10">
+			<div className="relative min-w-60 w-1/3 aspect-square group">
 				{
 					[true, false]
 						.map(bool => <Image
@@ -14,15 +14,19 @@ export default function Home() {
 							alt="Profile"
 							className={`absolute inset-0 w-full h-full object-cover transition-opacity
 								rounded-4xl
-								${bool ? "opacity-100" : "opacity-0 group-hover:opacity-100 duration-300"}`}
-						/>)
+								${!bool && "opacity-0 group-hover:opacity-100 group-hover:duration-300"}`}
+						/>
+						)
 				}
 			</div>
-			<h1 className="text-4xl sm:text-5xl font-bold leading-snug">
-				If you're just looking for basic websites...
-				Wrong dev :/
-			</h1>
-
+			<div>
+				<h1 className="text-4xl font-bold mb-5">
+					If you don't like basic websites, me neither.
+				</h1>
+				<h3>
+					Hi! My name is Malik, I'm 18 and a passionate web dev freelancer from Morocco. I enjoy making websites using Next.js
+				</h3>
+			</div>
 		</div>
 	</>
 }
