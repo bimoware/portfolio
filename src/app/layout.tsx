@@ -8,7 +8,14 @@ const outfit = Outfit({
 })
 
 // or Dynamic metadata
-export async function generateMetadata({ params }: { params: { locale: string } }) {
+// Define LayoutProps type
+type LayoutProps = {
+	params: Promise<{
+		locale: string;
+	}>;
+};
+
+export async function generateMetadata({ params }: LayoutProps) {
 
 	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: 'Metadata' });

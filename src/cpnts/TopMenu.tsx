@@ -1,16 +1,20 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
 
 export default function TopMenu() {
+  const t = useTranslations('HomePage')
   const markerRef = useRef<HTMLDivElement>(null)
   const navLinks = useRef<HTMLSpanElement[]>([])
+  const [markerLeft, setMarkerLeft] = useState(0)
+  const [markerWidth, setMarkerWidth] = useState(0)
 
   useEffect(() => {
     function indicator(target: HTMLElement) {
       if (!markerRef.current) return;
-      markerRef.current.style.left = target.offsetLeft + "px";
-      markerRef.current.style.width = target.offsetWidth + "px";
+      setMarkerLeft(target.offsetLeft)
+      setMarkerWidth(target.offsetWidth)
     }
     if (!navLinks.current) return;
 
@@ -18,23 +22,29 @@ export default function TopMenu() {
       indicator(e.currentTarget as HTMLElement)
     }
 
-    navLinks.current.forEach((link) => link.addEventListener("mouseenter", (e) => handleClick(e)));
-
-    return () => navLinks.current.forEach((link) => link.removeEventListener("mouseenter", (e) => handleClick(e)));
+    navLinks.current.forEach((link) => link.addEventListener("click", (e) => handleClick(e)));
+    return () => navLinks.current.forEach((link) => link.removeEventListener("click", (e) => handleClick(e)));
   }, [])
 
-  return <div className="w-full relative flex items-center justify-center
-  $border $rounded-2xl
-  p-2 px-2
-">
-    <div ref={markerRef} className="absolute left-0 h-7 rounded-full bg-indigo-500/70 transition-all duration-500 cursor-pointer z-10" />
-    <div className="*:z-10 inline-flex gap-2 justify-center items-center h-full duration-75">
+  return <div className="w-full relative flex items-center justify-center p-2 px-2">
+    <div ref={markerRef} className="absolute left-0 h-7
+    rounded-full bg-indigo-500/70
+    transition-all duration-500 cursor-pointer
+    z-10"
+      style={{
+        left: markerLeft + "px",
+        width: markerWidth + "px"
+      }} />
+    <div className="*:z-10 inline-flex gap-2 justify-center items-center h-full duration-300 ease-out
+    outline outline-indigo-500/50 rounded-2xl p-2 bg-neutral-950/90">
       {
-        ["Me", "Skills", "Projects", "Contact Me"]
-          .map(item => <span className="cursor-pointer mx-1B px-3"
+        [t('me'), t('skills'), t('projects'), t('contact')]
+          .map(item => <a className="select-none cursor-pointer mx-1B px-3 decoration-0"
+            href={`#${item.toLowerCase().replace(' ', '-')}`}
             ref={(e) => { navLinks.current.push(e!) }}
-            key={item}>{item}</span>)
-      }</div>
+            key={item}>{item}</a>)
+      }
+    </div>
   </div>
 
 
