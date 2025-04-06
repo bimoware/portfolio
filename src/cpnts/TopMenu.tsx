@@ -30,7 +30,7 @@ export default function TopMenu() {
     <div ref={markerRef} className="absolute left-0 h-7
     rounded-full bg-indigo-500
     transition-all duration-500 cursor-pointer
-    z-10"
+    z-20"
       style={{
         left: markerLeft + "px",
         width: markerWidth + "px"

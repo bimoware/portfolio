@@ -7,7 +7,7 @@ export default function HomePage() {
 
 	return (
 		<>
-			<div className='z-10 fixed top-0 w-full p-2'>
+			<div className='z-50 fixed top-0 w-full p-2'>
 				<TopMenu />
 			</div>
 			<div id="me" className='w-screen h-screen flex items-center justify-around gap-10 p-10'>
