@@ -1,5 +1,5 @@
-import TopMenu from "@/cpnts/TopMenu";
+import ProjectsSection from "@/cpnts/sections/ProjectsSection";
 
 export default function TestPage() {
-  return <TopMenu />
+  return <ProjectsSection />
 }

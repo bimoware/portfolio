@@ -43,6 +43,7 @@ export default function TopMenu() {
       }} />
     <div className="inline-flex gap-2 justify-center items-center h-full duration-300 ease-out
     border border-indigo-800 rounded-full p-2 bg-neutral-950/80
+    
     *:z-20">
       {
         [
