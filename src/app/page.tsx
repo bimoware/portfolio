@@ -1,5 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Bimodev',
+  icons: "/error.svg"
+}
 
 type ProjectData = {
   beta?: boolean
@@ -11,12 +17,25 @@ type ProjectData = {
 }
 export default function Home() {
 
-  return <div>
+  return <div className="mb-28">
+    <HeroSection />
     <ProjectsTitle />
     <ProjectsList />
   </div>
 }
 
+function HeroSection() {
+  return <div className="
+  w-screen h-[70vh]
+  flex flex-col items-center justify-center gap-5
+  text-5xl
+  text-center
+  font-bold
+  px-24">
+    <p>🚧Website not ready yet!! 🚧</p>
+    <p className="text-3xl text-white/90">So instead, how about you check out</p>
+  </div>
+}
 function ProjectsList() {
   const projects: ProjectData[] = [
     {
@@ -37,23 +56,24 @@ function ProjectsList() {
       ]
     }
   ]
-  return <div className="flex w-full items-center justify-center gap-8 p-4">
+  return <section className="flex w-full items-center justify-center gap-8 px-4 my-6">
     {
       projects.map(project => <ProjectCard key={project.id} {...project} />)
     }
-  </div>
+  </section>
 }
 
 function ProjectsTitle() {
-  return <div className="flex items-center justify-center text-5xl font-bold my-6 mb-9">
+  return <section className="flex items-center justify-center text-5xl font-bold
+  mb-9">
     <Image src={"/star.svg"} alt={"star"} width={50} height={50}
       className="h-9
       hover:rotate-12 hover:scale-110 active:scale-75 duration-150" />
-    Favorite project
+    My favorite project
     <Image src={"/star.svg"} alt={"star"} width={50} height={50}
       className="h-9
       hover:rotate-12 hover:scale-110 active:scale-75 duration-150" />
-  </div>
+  </section>
 }
 
 function ProjectCard({ name, desc, banner, links, beta }: ProjectData) {
