@@ -51,7 +51,7 @@ function ProjectsList() {
           src: "https://github.com/bimoware/bimowy"
         },
         {
-          icon: "/link.svg",
+          icon: "/logo.svg",
           name: "Bimowy",
           src: "https://bimowy.dev/"
         }
@@ -60,7 +60,7 @@ function ProjectsList() {
     {
       id: "auistudents",
       name: "AUI Students",
-      desc: "A very friendly Discord server filled with resources any student would love to have (complete reviews for many teachers, room type videos & price etc..). Whether you're alredy a student and looking to chat/help, or not and looking for having your questions answered, this server is for YOU!",
+      desc: "A very friendly Discord server for Al Akhawayn University students. Filled with resources any student would love to have (complete reviews for many teachers, room type videos & price etc..). Whether you're alredy a student and looking to chat/help, or not a student & looking for having your questions answered, this server is for YOU!",
       banner: "/aui.png",
       links: [
         {
