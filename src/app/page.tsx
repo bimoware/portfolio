@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 type ProjectData = {
   beta?: boolean
   id: string
+  title?: string
   desc: string
   banner: string
   links?: { icon: string, name: string, src: string }[]
@@ -26,7 +27,7 @@ export default function Home() {
 
 function HeroSection() {
   return <div className="
-  w-screen h-[70vh]
+  w-screen h-[50vh]
   flex flex-col items-center justify-center gap-5
   text-5xl
   text-center
@@ -36,6 +37,7 @@ function HeroSection() {
     <p className="text-3xl text-white/90">So instead, how about you check out</p>
   </div>
 }
+
 function ProjectsList() {
   const projects: ProjectData[] = [
     {
@@ -46,12 +48,25 @@ function ProjectsList() {
         {
           icon: "/github.svg",
           name: "Github",
-          src: "https://github.com/bimoware/bimowy-api"
+          src: "https://github.com/bimoware/bimowy"
         },
         {
           icon: "/link.svg",
           name: "Bimowy",
           src: "https://bimowy.dev/"
+        }
+      ]
+    },
+    {
+      id: "auistudents",
+      name: "AUI Students",
+      desc: "A very friendly Discord server filled with resources any student would love to have (complete reviews for many teachers, room type videos & price etc..). Whether you're alredy a student and looking to chat/help, or not and looking for having your questions answered, this server is for YOU!",
+      banner: "/aui.png",
+      links: [
+        {
+          icon: '/discord.png',
+          name: "Join now",
+          src: "https://discord.gg/8vyGxaxmJn"
         }
       ]
     }
@@ -69,7 +84,7 @@ function ProjectsTitle() {
     <Image src={"/star.svg"} alt={"star"} width={50} height={50}
       className="h-9
       hover:rotate-12 hover:scale-110 active:scale-75 duration-150" />
-    My favorite project
+    My favorite projects
     <Image src={"/star.svg"} alt={"star"} width={50} height={50}
       className="h-9
       hover:rotate-12 hover:scale-110 active:scale-75 duration-150" />
@@ -88,20 +103,19 @@ function ProjectCard({ name, desc, banner, links, beta }: ProjectData) {
     shadow-black/30 shadow-md
     flex flex-col
     hover:ring-3 hover:ring-white/50
-    duration-150
-    hover:scale-105 hover:-rotate-1
-    active:scale-90">
+    duration-150">
     <Image width="1280" height="640" src={banner} alt={banner}
       className="w-full" />
     <div className="p-4 flex flex-col gap-2">
-      {name && <span className="font-bold text-xl">{name}</span>}
+      {name && <span className="font-bold text-xl text-center">{name}</span>}
       <span className="inline-flex items-center">{desc}</span>
     </div>
     <div className="flex items-center justify-center gap-4">
       {
         links && links.map(l => <Link key={l.icon} href={l.src}
-          className="bg-white/5 p-2 rounded-2xl
-          flex items-center gap-1
+          target="_blank"
+          className="bg-white/5 p-2 px-3 rounded-2xl
+          flex items-center gap-2
           hover:scale-105 hover:-translate-y-2
           duration-150
           hover:shadow-md hover:shadow-black/40">
